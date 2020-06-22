@@ -1,0 +1,65 @@
+<div class="col-sm-6 offset-sm-3">
+<h2>{{customerTitle}}</h2>
+<form [formGroup]="dashboardForm" (ngSubmit)="onSubmit()">
+    
+    <div class="form-group">
+        <label for="name">First Name</label>
+        <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+        <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+            <div *ngIf="f.name.errors.required">First Name is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="lname">Last Name</label>
+        <input type="text" formControlName="lname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lname.errors }" />
+        <div *ngIf="submitted && f.lname.errors" class="invalid-feedback">
+            <div *ngIf="f.lname.errors.required">Last Name is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="add">Address</label>
+        <input type="text" formControlName="add" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.add.errors }" />
+        <div *ngIf="submitted && f.add.errors" class="invalid-feedback">
+            <div *ngIf="f.add.errors.required">Address is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="city">City</label>
+        <input type="text" formControlName="city" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.city.errors }" />
+        <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+            <div *ngIf="f.city.errors.required">City is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="state">State</label>
+        <input type="text" formControlName="state" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.state.errors }" />
+        <div *ngIf="submitted && f.state.errors" class="invalid-feedback">
+            <div *ngIf="f.state.errors.required">City is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="order">Order Total</label>
+        <input type="text" formControlName="order" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.order.errors }" />
+        <div *ngIf="submitted && f.order.errors" class="invalid-feedback">
+            <div *ngIf="f.order.errors.required">Order Total is required</div>
+        </div>
+    </div>
+    <div class="form-group row col-sm-6 " > 
+        <div style="padding-right: 20px;">
+        <button  type="submit" class="btn btn-primary">
+            Submit
+        </button>
+    </div>
+    <div style="padding-right: 20px;">
+        <button  type="button" class="btn btn-danger" *ngIf="editMode" (click)="delete()">
+            Delete
+        </button>
+    </div>
+    <div style="padding-right: 20px;">
+     <button  type="button" class="btn btn-warning" *ngIf ="!editMode" [routerLink]="['/customers']" routerLinkActive="router-link-active">
+            Cancel
+        </button>
+        </div>
+    </div>
+</form>
+</div>

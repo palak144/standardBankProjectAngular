@@ -1,0 +1,10 @@
+<div class="container div.container">
+    <tabset (click)="switchTab(tabset)" #tabset>
+        <tab tab1 (onSelect)="onTabSelect(1)" heading="Login" id="first" class="tabHeading" #first >
+            <app-login></app-login>
+        </tab>
+        <tab tab2 (onSelect)="onTabSelect(2)" heading="Register" id="second" class="tabHeading" #second >
+            <app-register></app-register>
+        </tab>
+    </tabset>
+</div>
